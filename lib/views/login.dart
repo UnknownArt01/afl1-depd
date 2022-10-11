@@ -18,6 +18,7 @@ class _Login extends State<Login> {
   final ctrlPass = TextEditingController();
   final ctrlNama = TextEditingController();
   final ctrlPhone = TextEditingController();
+  final ctrlCity = TextEditingController();
   bool isVisible = true;
 
   @override
@@ -73,6 +74,27 @@ class _Login extends State<Login> {
                     ),
                   ),
                   controller: ctrlNama,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    return value.toString().isEmpty
+                        ? 'Fields cannot be empty!'
+                        : null;
+                  },
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(
+                    labelText: "City",
+                    icon: Icon(Icons.place_outlined),
+                    hintText: "City",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  controller: ctrlCity,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) {
                     return value.toString().isEmpty
@@ -152,7 +174,12 @@ class _Login extends State<Login> {
                               content: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text("Silahkan kembali ke halaman menu")
+                                  Text("${ctrlEmail.text.toString()}"),
+                                  Text("${ctrlNama.text.toString()}"),
+                                  Text("${ctrlPhone.text.toString()}"),
+                                  Text("${ctrlEmail.text.toString()}"),
+                                  Text("${ctrlCity.text.toString()}"),
+                                  Text("Silahkan kembali ke halaman menu "),
                                 ],
                               ),
                             );
