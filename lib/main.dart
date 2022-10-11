@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:selyandaru_afl1/views/tampilan.dart';
 
 
+
 void main() {
   runApp(const MyNewApps());
 }
@@ -12,7 +13,10 @@ class MyNewApps extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      routes: {
+        '/': (context) => const Home(),
+        '/nextpage': (context) => const Login(),
+      },
     );
   }
 }
